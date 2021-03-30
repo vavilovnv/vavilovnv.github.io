@@ -30,6 +30,3 @@ Russia, Moscow
 
 
 
-
-
-
