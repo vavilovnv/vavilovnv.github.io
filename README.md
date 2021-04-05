@@ -15,6 +15,7 @@ Russia, Moscow
 
 <br>
 
+* Head of ERP Support Department at [NSK.Media](http://nsc.media/)
 * Head of Automation Department & Project Manager at [Fobiznes](https://4bis.ru/)
 * Project Team Leader & Project Manager at [Softrum](http://www.softrum.ru/)
 * Head of software department & Project Manager at [Pik-Group](https://pik-group.ru/)
