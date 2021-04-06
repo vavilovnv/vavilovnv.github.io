@@ -5,24 +5,24 @@
 # Nikolay Vavilov
 Russia, Moscow
 
-<br>
+  
 
-**Project Manager**
-<br>
-**1C Developer**
-<br>
-**Python Developer**
+## 🔭**Project Manager**  
 
-<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _Long time with 1C ~~but recently in ML~~_
 
-* Head of ERP Support Department at [NSK.Media](http://nsc.media/)
-* Head of Automation Department & Project Manager at [Fobiznes](https://4bis.ru/)
+
+&nbsp;
+
+🚀🚀🚀
+* _**not yet**_ Head of ERP Support Department at [NSK.Media](http://nsc.media/)
+* _**no more**_ Head of Automation Department & Project Manager at [Fobiznes](https://4bis.ru/)
 * Project Team Leader & Project Manager at [Softrum](http://www.softrum.ru/)
-* Head of software department & Project Manager at [Pik-Group](https://pik-group.ru/)
+* Head of software department & Project Manager at [DSK-2](https://pik-group.ru/)
 * 1C developer at [Mechel Service](https://www.mechelservice.ru/)
 * 1C developer at [Caesar Sattelite](https://www.csat.ru/)
 
-[Details](https://docs.google.com/presentation/d/1fmjQL6P5uXSOuunijNx0S_hKZbqJldeU8QTrCV7MkB0/edit?usp=sharing)
+📝[Details](https://docs.google.com/presentation/d/1fmjQL6P5uXSOuunijNx0S_hKZbqJldeU8QTrCV7MkB0/edit?usp=sharing) (in progress...)
 
 
 
