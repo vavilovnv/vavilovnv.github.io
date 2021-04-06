@@ -5,11 +5,11 @@
 # Nikolay Vavilov
 Russia, Moscow
 
-  
+&nbsp;  
 
-## 🔭**Project Manager**  
+## **Project Manager**  
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _Long time with 1C ~~but recently in ML~~_
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _Long time with 1C ~~but recently ML~~_
 
 
 &nbsp;
