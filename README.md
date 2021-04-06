@@ -8,17 +8,16 @@ Russia, Moscow
 &nbsp;  
 
 ## **Project Manager**  
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _Long time with 1C ~~but recently ML~~_
 
 
 &nbsp;
 
 🚀🚀🚀
-* _**not yet**_ Head of ERP Support Department at [NSK.Media](http://nsc.media/)
-* _**no more**_ Head of Automation Department & Project Manager at [Fobiznes](https://4bis.ru/)
-* Project Team Leader & Project Manager at [Softrum](http://www.softrum.ru/)
-* Head of software department & Project Manager at [DSK-2](https://pik-group.ru/)
+* _not yet_ Project Manager & Head of ERP Support Department at [NSK.Media](http://nsc.media/)
+* _no more_ Project Manager & Head of Automation Department at [Fobiznes](https://4bis.ru/)
+* Project Manager & Project Team Leader at [Softrum](http://www.softrum.ru/)
+* Project Manager & Head of software department at [DSK-2](https://pik-group.ru/)
 * 1C developer at [Mechel Service](https://www.mechelservice.ru/)
 * 1C developer at [Caesar Sattelite](https://www.csat.ru/)
 
