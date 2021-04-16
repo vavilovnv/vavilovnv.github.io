@@ -21,7 +21,8 @@ Russia, Moscow
 * 1C developer at [Mechel Service](https://www.mechelservice.ru/)
 * 1C developer at [Caesar Sattelite](https://www.csat.ru/)
 
-📝[Details](https://docs.google.com/presentation/d/1fmjQL6P5uXSOuunijNx0S_hKZbqJldeU8QTrCV7MkB0/edit?usp=sharing) (in progress...)
+📝[Паспорт 1С](https://uc1.1c.ru/account/summary/?token=5f45f6bfd78d7781d3c36801ebdfd3a8)
+📜[Details](https://docs.google.com/presentation/d/1fmjQL6P5uXSOuunijNx0S_hKZbqJldeU8QTrCV7MkB0/edit?usp=sharing) (in progress...)
 
 
 
