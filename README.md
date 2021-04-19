@@ -14,8 +14,8 @@ Russia, Moscow
 &nbsp;
 
 🚀🚀🚀
-* _not yet_ Project Manager & Head of ERP Support Department at [NSK.Media](http://nsc.media/)
-* _no more_ Project Manager & Head of Automation Department at [Fobiznes](https://4bis.ru/)
+* Project Manager & Head of ERP Support Department at [NSK.Media](http://nsc.media/)
+* Project Manager & Head of Automation Department at [Fobiznes](https://4bis.ru/)
 * Project Manager & Project Team Leader at [Softrum](http://www.softrum.ru/)
 * Project Manager & Head of software department at [DSK-2](https://pik-group.ru/)
 * 1C developer at [Mechel Service](https://www.mechelservice.ru/)
