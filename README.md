@@ -1,5 +1,5 @@
 
-[Telegram](https://t.me/Da4nik) | [E-mail](mailto:vavilovnv@gmail.com) | [LinkedIn](https://www.linkedin.com/in/vavilovnv) | [Github](https://github.com/vavilovnv)
+[Telegram](https://t.me/Da4nik) | [E-mail](mailto:vavilovnv@gmail.com) | [LinkedIn](https://www.linkedin.com/in/vavilovnv) 
 
 
 # Nikolay Vavilov
