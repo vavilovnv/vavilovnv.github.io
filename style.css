@@ -1,0 +1,121 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	color: #333;
+}
+
+span{
+	font-size: 14px;
+	color: #000;
+	transition: 0.3s;
+}
+
+img{
+	width: 70px;
+	border-radius: 35px;
+	margin: 10px 15px 0 0;
+}
+
+table {
+	margin: 0;
+	float: right;
+}
+
+table tr td:first-child {
+	padding-right: 5px;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+	font-weight: bold;
+	transition: 0.3s;
+}
+
+a:hover {
+	color: #1A6DBB;
+	transition: 0.3s;
+}
+
+::-moz-selection {
+	color: white;
+	background: #1A6DBB;
+}
+
+::selection {
+	color: white;
+	background: #1A6DBB;
+}
+
+.content {
+	max-width: 70%;
+	margin: 0 auto;
+}
+
+.intro {
+	margin: 150px 0 90px 0;
+	text-align: center;
+}
+
+.intro span {
+	margin-bottom: 10px;
+	font-size: 22px;
+	line-height: 40px;
+}
+
+.intro span.highlight {
+	background-color: #333;
+	color: white;
+}
+
+.intro span.highlight-red {
+	background-color: darkred;
+	color: white;
+	transition: 0.3s;
+}
+
+.intro span.highlight-red:hover {
+	background-color: red;
+	color: white;
+	transition: 0.3s;
+}
+
+.hovergallery img{
+-webkit-transform:scale(0.9); /*Webkit: уменьшаем размер до 0.8*/
+-moz-transform:scale(0.9); /*Mozilla: масштабирование*/
+-o-transform:scale(0.9); /*Opera: масштабирование*/
+-webkit-transition-duration: 0.5s; /*Webkit: длительность анимации*/
+-moz-transition-duration: 0.5s; /*Mozilla: длительность анимации*/
+-o-transition-duration: 0.5s; /*Opera: длительность анимации*/
+opacity: 0.9; /*Начальная прозрачность изображений*/
+margin: 0 20px 10px 0; /*Интервалы между изображениями*/
+}
+
+.hovergallery img:hover{
+-webkit-transform:scale(2); /*Webkit: увеличиваем размер до 2x*/
+-moz-transform:scale(2); /*Mozilla: масштабирование*/
+-o-transform:scale(2); /*Opera: масштабирование*/
+box-shadow:0px 0px 30px gray; /*CSS3 тени: 30px размытая тень вокруг всего изображения*/
+-webkit-box-shadow:0px 0px 30px gray; /*Webkit: тени*/
+-moz-box-shadow:0px 0px 30px gray; /*Mozilla: тени*/
+opacity: 1;
+}
+
+@media (max-width: 360px) {
+	.intro {
+		margin: 50px 0 50px 0;
+	}
+
+	.intro span {
+		font-size: 18px;
+		line-height: 28px;
+	}
+
+	img{
+		display: none;
+	}
+
+	table {
+		float: none;
+	}
+}
