@@ -1,35 +1,162 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Personal page</title>
-	<link href='https://fonts.googleapis.com/css?family=Roboto:300,300italic' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Nikolay Vavilov, backend engineer focused on Python, enterprise integrations, and practical LLM systems.">
+	<title>Nikolay Vavilov | Backend Engineer</title>
 	<link rel="stylesheet" href="style.css">
-	<link rel="icon" type="image/jpeg" href="icon.png" />
+	<link rel="icon" type="image/png" href="icon.png">
 </head>
-
 <body>
-	<div class="content">
-		<div class="intro">
-			<span>Hi there! 👋</span><br>
-			<span>My name is Nikolay Vavilov, and I'm a software developer.<br>
-			<span>I primarily work with <span class="highlight">Python</span> and occasionally with <span style="background-color:orange">1C</span>.</span><br>
-		</div>
-	</div>
+	<div class="ambient-dots" aria-hidden="true"></div>
+
+	<header class="site-header">
+		<a class="brand" href="#top" aria-label="Nikolay Vavilov home">
+			<img src="icon.png" alt="" width="44" height="44">
+			<span>Nikolay Vavilov</span>
+		</a>
+		<nav class="nav-links" aria-label="Primary navigation">
+			<a href="#top">About</a>
+			<a href="#focus">Focus</a>
+			<a href="#stack">Stack</a>
+		</nav>
+		<button class="theme-toggle" type="button" aria-label="Switch color theme" aria-pressed="false">
+			<span class="theme-icon is-moon" aria-hidden="true">☾</span>
+		</button>
+	</header>
+
+	<main id="top">
+		<section class="hero reveal">
+			<div class="hero-content">
+				<p class="eyebrow">Backend Software Engineer</p>
+				<h1>Nikolay Vavilov</h1>
+				<p class="hero-text">
+					I build backend systems, automation tools, integrations, and practical LLM-powered services.
+					15+ years in software development, 5+ years with Python.
+				</p>
+				<div class="hero-actions" aria-label="Contact and profile links">
+					<a class="button primary linkedin-button" href="https://www.linkedin.com/in/vavilovnv/" target="_blank" rel="noreferrer">LinkedIn</a>
+					<a class="button primary" href="https://github.com/vavilovnv" target="_blank" rel="noreferrer">GitHub</a>
+					<a class="button primary" href="https://t.me/nioklas" target="_blank" rel="noreferrer">Telegram</a>
+					<div class="email-action">
+						<a class="button primary" href="mailto:vavilovnv@gmail.com">Email</a>
+						<button class="icon-button copy-email" type="button" data-copy="vavilovnv@gmail.com" aria-label="Copy email address">
+							<span aria-hidden="true">⧉</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="summary reveal" aria-label="Profile summary">
+			<p>
+				Backend engineer focused on Python, scalable APIs, enterprise integrations, and applied LLM systems.
+				I combine hands-on engineering experience with team leadership background and a strong business software foundation.
+			</p>
+		</section>
+
+		<section id="focus" class="section reveal">
+			<div class="section-heading">
+				<p class="eyebrow">Focus</p>
+			</div>
+			<div class="focus-grid">
+				<article class="card">
+					<h3>Backend systems</h3>
+					<p>FastAPI, Django, Flask, async services, APIs, background workers, and production backend ownership.</p>
+				</article>
+				<article class="card">
+					<h3>Enterprise integrations</h3>
+					<p>Business systems, internal tools, ERP workflows, automation, and service-to-service communication.</p>
+				</article>
+				<article class="card">
+					<h3>LLM applications</h3>
+					<p>RAG systems, AI assistants, prompt engineering, and practical enterprise LLM integrations.</p>
+				</article>
+				<article class="card">
+					<h3>Engineering quality</h3>
+					<p>Testing, CI/CD, observability, code reviews, mentoring, and maintainable delivery practices.</p>
+				</article>
+			</div>
+		</section>
+
+		<section id="stack" class="section reveal">
+			<div class="section-heading">
+				<p class="eyebrow">Stack</p>
+			</div>
+			<div class="stack-groups">
+				<div>
+					<h3>Python</h3>
+					<ul class="chips" aria-label="Python technologies">
+						<li>FastAPI</li>
+						<li>Litestar</li>
+						<li>Django</li>
+						<li>Flask</li>
+						<li>Asyncio</li>
+						<li>Exchangelib</li>
+						<li>Aioimaplib</li>
+						<li>Pytest</li>
+					</ul>
+				</div>
+				<div>
+					<h3>Databases</h3>
+					<ul class="chips" aria-label="Database technologies">
+						<li>PostgreSQL</li>
+						<li>MariaDB</li>
+						<li>Redis</li>
+						<li>MongoDB</li>
+						<li>ClickHouse</li>
+					</ul>
+				</div>
+				<div>
+					<h3>Queues & Brokers</h3>
+					<ul class="chips" aria-label="Queue and broker technologies">
+						<li>Kafka</li>
+						<li>RabbitMQ</li>
+						<li>ARQ</li>
+						<li>Taskiq</li>
+						<li>SAQ</li>
+					</ul>
+				</div>
+				<div>
+					<h3>AI & ETL</h3>
+					<ul class="chips" aria-label="AI and ETL technologies">
+						<li>RAG</li>
+						<li>LangChain</li>
+						<li>LangGraph</li>
+						<li>OpenAPI</li>
+						<li>Airflow</li>
+					</ul>
+				</div>
+				<div>
+					<h3>Infrastructure</h3>
+					<ul class="chips" aria-label="Infrastructure technologies">
+						<li>Docker</li>
+						<li>Nginx</li>
+						<li>Grafana</li>
+						<li>Prometheus</li>
+						<li>HashiCorp Vault</li>
+						<li>AWS</li>
+						<li>GCP</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<footer class="site-footer">
+		<p>Open for remote work.<br>Right now located in Bishkek, KG.</p>
+		<nav class="footer-links" aria-label="External links">
+			<a href="https://docs.google.com/document/d/1CPTMVfJdMzAYZzF1g2VxBG_9Jf1TmR4xNWPk_rZ4f28" target="_blank" rel="noreferrer">CV</a>
+			<a href="https://www.linkedin.com/in/vavilovnv/" target="_blank" rel="noreferrer">LinkedIn</a>
+			<a href="https://github.com/vavilovnv" target="_blank" rel="noreferrer">GitHub</a>
+			<a href="https://uc1.1c.ru/account/summary/?token=5f45f6bfd78d7781d3c36801ebdfd3a8" target="_blank" rel="noreferrer">1C Passport</a>
+			<a href="https://leetcode.com/vavilovnv/" target="_blank" rel="noreferrer">LeetCode</a>
+			<a href="https://stepik.org/users/316822007" target="_blank" rel="noreferrer">Stepik</a>
+		</nav>
+	</footer>
+
+	<script src="script.js"></script>
 </body>
-<footer>
-	<div align="center" class="resources">
-		<span>
-			🔗
-			<a href="https://docs.google.com/document/d/1CPTMVfJdMzAYZzF1g2VxBG_9Jf1TmR4xNWPk_rZ4f28" target="_blank">CV</a> | 
-			<a href="https://www.linkedin.com/in/vavilovnv/" target="_blank">LinkedIn</a> | 
-			<a href="https://github.com/vavilovnv" target="_blank">Github</a> |
-			<a href="https://uc1.1c.ru/account/summary/?token=5f45f6bfd78d7781d3c36801ebdfd3a8" target="_blank">1C passport</a> |
-			<a href="https://stepik.org/users/316822007" target="_blank">Stepik</a> |
-			<a href="https://leetcode.com/vavilovnv/" target="_blank">Leetcode</a> |
-			<a href="https://t.me/nioklas" target="_blank">Telegram</a>
-		</span>
-	</div>
-</footer>
 </html>
