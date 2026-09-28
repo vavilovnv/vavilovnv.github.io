@@ -5,8 +5,55 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Nikolay Vavilov, backend engineer focused on Python, enterprise integrations, and practical LLM systems." data-i18n-content="meta.description">
 	<title data-i18n="meta.title">Nikolay Vavilov | Backend Engineer</title>
+	<link rel="canonical" href="https://vavilovnv.github.io/">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://vavilovnv.github.io/">
+	<meta property="og:site_name" content="Nikolay Vavilov">
+	<meta property="og:title" content="Nikolay Vavilov | Backend Engineer">
+	<meta property="og:description" content="Backend engineer focused on Python, scalable APIs, enterprise integrations, and practical LLM systems.">
+	<meta property="og:image" content="https://vavilovnv.github.io/assets/og-image.png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:alt" content="Nikolay Vavilov, Backend Software Engineer">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:locale:alternate" content="ru_RU">
+	<meta name="twitter:card" content="summary_large_image">
+	<script>
+		// Runs before first paint so the page doesn't flash the wrong theme or language.
+		(function () {
+			var root = document.documentElement;
+			var theme = null;
+			var language = null;
+
+			try {
+				theme = localStorage.getItem("theme");
+				language = localStorage.getItem("language");
+			} catch (error) {
+				// Storage unavailable (private mode, blocked cookies).
+			}
+
+			if (theme !== "light" && theme !== "dark") {
+				theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+			}
+
+			root.dataset.theme = theme;
+			root.classList.add("js");
+			if (language && language !== "en") {
+				root.classList.add("i18n-pending");
+			}
+
+			// If main.js fails to run, don't leave the content hidden.
+			window.setTimeout(function () {
+				if (!window.siteReady) {
+					root.classList.remove("js", "i18n-pending");
+				}
+			}, 3000);
+		})();
+	</script>
 	<link rel="stylesheet" href="src/styles.css">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 	<link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+	<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 </head>
 <body>
 	<div class="ambient-dots" aria-hidden="true"></div>
@@ -22,7 +69,7 @@
 			<a href="#stack" data-i18n="nav.stack">Stack</a>
 		</nav>
 		<div class="header-actions">
-			<div class="language-toggle" aria-label="Language" data-i18n-aria-label="language.aria">
+			<div class="language-toggle" role="group" aria-label="Language" data-i18n-aria-label="language.aria">
 				<button class="language-option is-active" type="button" data-language="en" aria-pressed="true">EN</button>
 				<button class="language-option" type="button" data-language="ru" aria-pressed="false">RU</button>
 			</div>
@@ -85,9 +132,11 @@
 					Backend engineer focused on Python, scalable APIs, enterprise integrations, and applied LLM systems.
 					I combine hands-on engineering experience with team leadership background and a strong business software foundation.
 				</p>
-				<div class="summary-note" data-i18n-container hidden>
+				<div class="summary-note" data-i18n-container>
 					<span class="summary-note-badge" aria-hidden="true">P.S.</span>
-					<div class="summary-note-text" data-i18n="summary.note"></div>
+					<div class="summary-note-text" data-i18n="summary.note">
+							<p>I'm especially interested in LLM-powered development, AI tooling, and agent workflows, and I keep exploring this area through personal projects and experiments.</p>
+						</div>
 				</div>
 			</div>
 		</section>
@@ -212,6 +261,6 @@
 	</footer>
 
 	<script src="src/main.js"></script>
-	<script data-goatcounter="https://vavilovnv.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+	<script data-goatcounter="https://vavilovnv.goatcounter.com/count" async src="https://gc.zgo.at/count.v4.js" crossorigin="anonymous" integrity="sha384-nRw6qfbWyJha9LhsOtSb2YJDyZdKvvCFh0fJYlkquSFjUxp9FVNugbfy8q1jdxI+"></script>
 </body>
 </html>

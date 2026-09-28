@@ -5,55 +5,11 @@ const copyEmailButton = document.querySelector(".copy-email");
 const ambientDots = document.querySelector(".ambient-dots");
 const revealItems = document.querySelectorAll(".reveal");
 
+// English text lives only in index.html (it's also the no-JS fallback); collectEnglishStrings()
+// reads it into translations.en at startup. List here only strings that never appear in the markup.
 const translations = {
 	en: {
-		"meta.title": "Nikolay Vavilov | Backend Engineer",
-		"meta.description": "Nikolay Vavilov, backend engineer focused on Python, enterprise integrations, and practical LLM systems.",
-		"name": "Nikolay Vavilov",
-		"brand.aria": "Nikolay Vavilov home",
-		"nav.aria": "Primary navigation",
-		"nav.about": "About",
-		"nav.focus": "Focus",
-		"nav.stack": "Stack",
-		"language.aria": "Language",
-		"theme.aria": "Switch color theme",
-		"hero.eyebrow": "Backend Software Engineer",
-		"hero.text": "I build backend systems, automation tools, integrations, and practical LLM-powered services. 15+ years in software development, 5+ years with Python.",
-		"hero.actions": "Contact and profile links",
-		"email.copy": "Copy email address",
 		"email.copied": "Email address copied",
-		"email.copied.short": "Copied",
-		"summary.aria": "Profile summary",
-		"summary.title": "Engineering profile",
-		"summary.text": "Backend engineer focused on Python, scalable APIs, enterprise integrations, and applied LLM systems. I combine hands-on engineering experience with team leadership background and a strong business software foundation.",
-		"summary.note": "<p>I'm especially interested in LLM-powered development, AI tooling, and agent workflows, and I keep exploring this area through personal projects and experiments.</p>",
-		"focus.eyebrow": "Focus",
-		"focus.backend.title": "Backend systems",
-		"focus.backend.text": "Backend for web services, microservices, integration solutions, queues, and background data processing.",
-		"focus.integrations.title": "Enterprise integrations",
-		"focus.integrations.text": "API and backend development for corporate portals, internal services, parsing, notifications, business-process automation, and mail management services.",
-		"focus.llm.title": "LLM applications",
-		"focus.llm.text": "RAG systems, AI assistants, prompt engineering, internal AI helper tools, AI agent harness setup, and practical enterprise LLM integrations.",
-		"focus.quality.title": "Engineering quality",
-		"focus.quality.text": "Testing, CI/CD, observability, code reviews, mentoring, architecture decisions, and maintainable delivery practices.",
-		"stack.eyebrow": "Stack",
-		"stack.python.aria": "Python technologies",
-		"stack.databases": "Databases",
-		"stack.databases.aria": "Database technologies",
-		"stack.queues": "Queues & Brokers",
-		"stack.queues.aria": "Queue and broker technologies",
-		"stack.ai": "AI & ETL",
-		"stack.ai.aria": "AI and ETL technologies",
-		"stack.infrastructure": "Infrastructure",
-		"stack.infrastructure.aria": "Infrastructure technologies",
-		"stack.additional": "Additional languages",
-		"stack.additional.aria": "Additional programming languages",
-		"stack.go": "Go (basic)",
-		"stack.typescript": "TypeScript (basic)",
-		"stack.onec": "",
-		"footer.status": "Open for remote work.<br>Right now located in Bishkek, KG.",
-		"footer.copyright": "© 2026 Nikolay Vavilov",
-		"footer.aria": "External links",
 	},
 	ru: {
 		"meta.title": "Николай Вавилов | Backend Engineer",
@@ -106,9 +62,46 @@ const translations = {
 	},
 };
 
-let currentLanguage = localStorage.getItem("language") || "en";
+// localStorage can throw (private mode, blocked cookies); the site must keep working without it.
+const storage = {
+	get(key) {
+		try {
+			return localStorage.getItem(key);
+		} catch {
+			return null;
+		}
+	},
+	set(key, value) {
+		try {
+			localStorage.setItem(key, value);
+		} catch {
+			// Preferences just won't persist.
+		}
+	},
+};
 
-root.classList.add("js");
+function collectEnglishStrings() {
+	const en = translations.en;
+	const collect = (key, value) => {
+		if (!(key in en)) {
+			en[key] = value.trim().replace(/\s+/g, " ");
+		}
+	};
+
+	document.querySelectorAll("[data-i18n]").forEach((element) => {
+		collect(element.dataset.i18n, element.innerHTML);
+	});
+	document.querySelectorAll("[data-i18n-content]").forEach((element) => {
+		collect(element.dataset.i18nContent, element.getAttribute("content") || "");
+	});
+	document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
+		collect(element.dataset.i18nAriaLabel, element.getAttribute("aria-label") || "");
+	});
+}
+
+collectEnglishStrings();
+
+let currentLanguage = storage.get("language") || "en";
 
 function translate(key) {
 	return translations[currentLanguage][key] || translations.en[key] || "";
@@ -148,7 +141,7 @@ function setLanguage(language) {
 		element.hidden = element.dataset.languageOnly !== currentLanguage;
 	});
 
-	localStorage.setItem("language", currentLanguage);
+	root.classList.remove("i18n-pending");
 }
 
 function seededRandom(seed) {
@@ -197,9 +190,17 @@ function createAmbientDots() {
 
 createAmbientDots();
 
-const storedTheme = localStorage.getItem("theme");
-const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-const initialTheme = storedTheme || preferredTheme;
+const colorSchemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+function systemTheme() {
+	return colorSchemeQuery.matches ? "dark" : "light";
+}
+
+// Only an explicit toggle is saved; otherwise the site follows the system theme.
+function savedTheme() {
+	const theme = storage.get("theme");
+	return theme === "light" || theme === "dark" ? theme : null;
+}
 
 function setTheme(theme) {
 	const themeIcon = themeToggle.querySelector(".theme-icon");
@@ -208,19 +209,30 @@ function setTheme(theme) {
 	themeToggle.setAttribute("aria-pressed", String(theme === "dark"));
 	themeIcon.textContent = theme === "dark" ? "☀" : "☾";
 	themeIcon.classList.toggle("is-moon", themeIcon.textContent === "☾");
-	localStorage.setItem("theme", theme);
 }
 
-setTheme(initialTheme);
+setTheme(savedTheme() || systemTheme());
 setLanguage(currentLanguage);
 
 themeToggle.addEventListener("click", () => {
-	setTheme(root.dataset.theme === "dark" ? "light" : "dark");
+	const theme = root.dataset.theme === "dark" ? "light" : "dark";
+	storage.set("theme", theme);
+	setTheme(theme);
 });
+
+// Safari before 14 has no addEventListener on MediaQueryList.
+if (colorSchemeQuery.addEventListener) {
+	colorSchemeQuery.addEventListener("change", () => {
+		if (!savedTheme()) {
+			setTheme(systemTheme());
+		}
+	});
+}
 
 languageButtons.forEach((button) => {
 	button.addEventListener("click", () => {
 		setLanguage(button.dataset.language);
+		storage.set("language", currentLanguage);
 	});
 });
 
@@ -287,3 +299,6 @@ if ("IntersectionObserver" in window) {
 } else {
 	revealItems.forEach((item) => item.classList.add("is-visible"));
 }
+
+// Tells the fallback in <head> that the page finished setting up.
+window.siteReady = true;
