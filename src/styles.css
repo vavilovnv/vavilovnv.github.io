@@ -804,16 +804,24 @@ h3 {
 		width: 100%;
 	}
 
+	/* The copy button can't shrink below the address, so wrap instead of overflowing the hero. */
 	.email-action {
+		flex-wrap: wrap;
 		width: 100%;
 	}
 
 	.email-action .button {
-		flex: 1;
+		flex: 1 1 auto;
 		width: auto;
 	}
 
 	.card {
 		min-height: auto;
+	}
+}
+
+@media (max-width: 400px) {
+	.hero-marker {
+		display: none;
 	}
 }
