@@ -6,15 +6,15 @@
 	<meta name="description" content="Nikolay Vavilov, backend engineer focused on Python, enterprise integrations, and practical LLM systems." data-i18n-content="meta.description">
 	<title data-i18n="meta.title">Nikolay Vavilov | Backend Engineer</title>
 	<link rel="stylesheet" href="src/styles.css">
-	<link rel="icon" type="image/png" href="assets/icon.png">
+	<link rel="icon" type="image/svg+xml" href="assets/icon.svg">
 </head>
 <body>
 	<div class="ambient-dots" aria-hidden="true"></div>
 
 	<header class="site-header">
 		<a class="brand" href="#top" aria-label="Nikolay Vavilov home" data-i18n-aria-label="brand.aria">
-			<img src="assets/icon.png" alt="" width="44" height="44">
-			<span>Nikolay Vavilov</span>
+			<span class="brand-mark" aria-hidden="true">VN</span>
+			<span class="brand-name" data-i18n="name">Nikolay Vavilov</span>
 		</a>
 		<nav class="nav-links" aria-label="Primary navigation" data-i18n-aria-label="nav.aria">
 			<a href="#top" data-i18n="nav.about">About</a>
@@ -36,7 +36,7 @@
 		<section class="hero reveal">
 			<div class="hero-content">
 				<p class="eyebrow" data-i18n="hero.eyebrow">Backend Software Engineer</p>
-				<h1>Nikolay Vavilov</h1>
+				<h1 data-i18n="name">Nikolay Vavilov</h1>
 				<div class="hero-profile">
 					<div class="hero-marker" aria-hidden="true"></div>
 					<div class="hero-profile-content">
@@ -45,13 +45,24 @@
 							15+ years in software development, 5+ years with Python.
 						</p>
 						<div class="hero-actions" aria-label="Contact and profile links" data-i18n-aria-label="hero.actions">
-							<a class="button primary linkedin-button" href="https://www.linkedin.com/in/vavilovnv/" target="_blank" rel="noreferrer">LinkedIn</a>
-							<a class="button primary" href="https://github.com/vavilovnv" target="_blank" rel="noreferrer">GitHub</a>
-							<a class="button primary" href="https://t.me/nioklas" target="_blank" rel="noreferrer">Telegram</a>
+							<a class="button primary" href="https://www.linkedin.com/in/vavilovnv/" target="_blank" rel="noreferrer">LinkedIn</a>
+							<a class="button ghost" href="https://docs.google.com/document/d/1CPTMVfJdMzAYZzF1g2VxBG_9Jf1TmR4xNWPk_rZ4f28" target="_blank" rel="noreferrer">CV</a>
+							<a class="button ghost" href="https://github.com/vavilovnv" target="_blank" rel="noreferrer">GitHub</a>
+							<a class="button ghost" href="https://t.me/nioklas" target="_blank" rel="noreferrer">Telegram</a>
 							<div class="email-action">
-								<a class="button primary" href="mailto:vavilovnv@gmail.com">Email</a>
-								<button class="icon-button copy-email" type="button" data-copy="vavilovnv@gmail.com" aria-label="Copy email address" data-i18n-aria-label="email.copy">
-									<span aria-hidden="true">⧉</span>
+								<a class="button ghost" href="mailto:vavilovnv@gmail.com">Email</a>
+								<button class="button ghost copy-email" type="button" data-copy="vavilovnv@gmail.com" aria-label="Copy email address" data-i18n-aria-label="email.copy">
+									<svg class="copy-email-icon copy-email-icon-copy" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+										<rect x="9" y="9" width="11" height="11" rx="2"></rect>
+										<path d="M5 15V6a2 2 0 0 1 2-2h9"></path>
+									</svg>
+									<svg class="copy-email-icon copy-email-icon-done" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+										<path d="m5 12.5 4.5 4.5L19 7.5"></path>
+									</svg>
+									<span class="copy-email-labels" aria-hidden="true">
+										<span class="copy-email-address">vavilovnv@gmail.com</span>
+										<span class="copy-email-done" data-i18n="email.copied.short">Copied</span>
+									</span>
 								</button>
 							</div>
 						</div>
@@ -76,7 +87,7 @@
 				</p>
 				<div class="summary-note" data-i18n-container hidden>
 					<span class="summary-note-badge" aria-hidden="true">P.S.</span>
-					<p data-i18n="summary.note"></p>
+					<div class="summary-note-text" data-i18n="summary.note"></div>
 				</div>
 			</div>
 		</section>
@@ -154,6 +165,7 @@
 						<li>LangGraph</li>
 						<li>OpenAI</li>
 						<li>Claude API</li>
+						<li>llama.cpp</li>
 						<li>Airflow</li>
 					</ul>
 				</div>
@@ -161,7 +173,9 @@
 					<h3 data-i18n="stack.infrastructure">Infrastructure</h3>
 					<ul class="chips" aria-label="Infrastructure technologies" data-i18n-aria-label="stack.infrastructure.aria">
 						<li>Docker</li>
+						<li>Kubernetes</li>
 						<li>Nginx</li>
+						<li>HAProxy</li>
 						<li>Grafana</li>
 						<li>Prometheus</li>
 						<li>HashiCorp Vault</li>
@@ -173,7 +187,7 @@
 					<h3 data-i18n="stack.additional">Additional languages</h3>
 					<ul class="chips" aria-label="Additional programming languages" data-i18n-aria-label="stack.additional.aria">
 						<li data-i18n="stack.go">Go (basic)</li>
-						<li data-i18n="stack.javascript">JavaScript (basic)</li>
+						<li data-i18n="stack.typescript">TypeScript (basic)</li>
 						<li data-i18n="stack.onec" hidden></li>
 					</ul>
 				</div>
@@ -185,7 +199,7 @@
 	<footer class="site-footer">
 		<div class="footer-status">
 			<p data-i18n="footer.status">Open for remote work.<br>Right now located in Bishkek, KG.</p>
-			<p class="copyright">© 2026 Nikolay Vavilov</p>
+			<p class="copyright" data-i18n="footer.copyright">© 2026 Nikolay Vavilov</p>
 		</div>
 		<nav class="footer-links" aria-label="External links" data-i18n-aria-label="footer.aria">
 			<a href="https://docs.google.com/document/d/1CPTMVfJdMzAYZzF1g2VxBG_9Jf1TmR4xNWPk_rZ4f28" target="_blank" rel="noreferrer">CV</a>

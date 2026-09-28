@@ -10,6 +10,6 @@ It presents my backend engineering profile, technology stack, contact links, and
 - `index.html` - root entry point required by GitHub Pages.
 - `src/styles.css` - page styles.
 - `src/main.js` - theme, language switcher, copy email, and reveal behavior.
-- `assets/icon.png` - site icon.
+- `assets/icon.svg` - favicon.
 
 No build step is required.

@@ -9,6 +9,7 @@ const translations = {
 	en: {
 		"meta.title": "Nikolay Vavilov | Backend Engineer",
 		"meta.description": "Nikolay Vavilov, backend engineer focused on Python, enterprise integrations, and practical LLM systems.",
+		"name": "Nikolay Vavilov",
 		"brand.aria": "Nikolay Vavilov home",
 		"nav.aria": "Primary navigation",
 		"nav.about": "About",
@@ -21,10 +22,11 @@ const translations = {
 		"hero.actions": "Contact and profile links",
 		"email.copy": "Copy email address",
 		"email.copied": "Email address copied",
+		"email.copied.short": "Copied",
 		"summary.aria": "Profile summary",
 		"summary.title": "Engineering profile",
 		"summary.text": "Backend engineer focused on Python, scalable APIs, enterprise integrations, and applied LLM systems. I combine hands-on engineering experience with team leadership background and a strong business software foundation.",
-		"summary.note": "I am especially interested in LLM-powered development, AI tooling, and agent workflows, and I keep exploring this area through personal projects and experiments.",
+		"summary.note": "<p>I'm especially interested in LLM-powered development, AI tooling, and agent workflows, and I keep exploring this area through personal projects and experiments.</p>",
 		"focus.eyebrow": "Focus",
 		"focus.backend.title": "Backend systems",
 		"focus.backend.text": "Backend for web services, microservices, integration solutions, queues, and background data processing.",
@@ -47,14 +49,16 @@ const translations = {
 		"stack.additional": "Additional languages",
 		"stack.additional.aria": "Additional programming languages",
 		"stack.go": "Go (basic)",
-		"stack.javascript": "JavaScript (basic)",
+		"stack.typescript": "TypeScript (basic)",
 		"stack.onec": "",
 		"footer.status": "Open for remote work.<br>Right now located in Bishkek, KG.",
+		"footer.copyright": "© 2026 Nikolay Vavilov",
 		"footer.aria": "External links",
 	},
 	ru: {
 		"meta.title": "Николай Вавилов | Backend Engineer",
 		"meta.description": "Николай Вавилов, backend engineer с фокусом на Python, корпоративные интеграции и практические LLM-системы.",
+		"name": "Николай Вавилов",
 		"brand.aria": "Главная Николая Вавилова",
 		"nav.aria": "Основная навигация",
 		"nav.about": "Обо мне",
@@ -67,10 +71,11 @@ const translations = {
 		"hero.actions": "Контакты и профили",
 		"email.copy": "Скопировать email",
 		"email.copied": "Email скопирован",
+		"email.copied.short": "Скопировано",
 		"summary.aria": "Краткое описание профиля",
 		"summary.title": "Engineering profile",
 		"summary.text": "Backend engineer с фокусом на Python, масштабируемые API, корпоративные интеграции и прикладные LLM-системы. Сочетаю практический инженерный опыт, опыт тимлидства и хорошее понимание бизнес-доменов.",
-		"summary.note": "Имею значительный опыт работы с платформой 1С и могу помочь с интеграционными проектами, а также с доработкой конфигураций на БСП.",
+		"summary.note": "<ul><li>Интересуюсь разработкой AI-решений и LLM workflows. Использую AI как еще один инструмент разработчика в своем арсенале.</li><li>Имею значительный опыт работы с платформой 1С и могу помочь с интеграционными проектами, а также с доработкой конфигураций на БСП.</li></ul>",
 		"focus.eyebrow": "Фокус",
 		"focus.backend.title": "Backend systems",
 		"focus.backend.text": "Backend для веб-сервисов, микросервисов, интеграционных решений, очередей и фоновой обработки данных.",
@@ -93,9 +98,10 @@ const translations = {
 		"stack.additional": "Additional languages",
 		"stack.additional.aria": "Дополнительные языки программирования",
 		"stack.go": "Go (basic)",
-		"stack.javascript": "JavaScript (basic)",
+		"stack.typescript": "TypeScript (basic)",
 		"stack.onec": "1С (7.7, 8.x)",
 		"footer.status": "Открыт к удаленной работе.<br>Сейчас нахожусь в Бишкеке, KG.",
+		"footer.copyright": "© 2026 Николай Вавилов",
 		"footer.aria": "Внешние ссылки",
 	},
 };
@@ -153,7 +159,7 @@ function seededRandom(seed) {
 function createAmbientDots() {
 	const rows = 8;
 	const cols = 8;
-	const colors = ["37, 99, 235", "30, 58, 138", "96, 165, 250"];
+	const colors = ["var(--dot-a)", "var(--dot-b)", "var(--dot-c)"];
 
 	for (let row = 0; row < rows; row += 1) {
 		for (let col = 0; col < cols; col += 1) {
@@ -218,23 +224,53 @@ languageButtons.forEach((button) => {
 	});
 });
 
-copyEmailButton.addEventListener("click", async () => {
-	const icon = copyEmailButton.querySelector("span");
-	const originalIcon = icon.textContent;
-	const email = copyEmailButton.dataset.copy;
-
-	try {
-		await navigator.clipboard.writeText(email);
-		icon.textContent = "✓";
-		copyEmailButton.setAttribute("aria-label", translate("email.copied"));
-	} catch {
-		window.location.href = `mailto:${email}`;
+async function copyText(text) {
+	if (navigator.clipboard && window.isSecureContext) {
+		try {
+			await navigator.clipboard.writeText(text);
+			return true;
+		} catch {
+			// Fall through to the legacy approach below.
+		}
 	}
 
-	window.setTimeout(() => {
-		icon.textContent = originalIcon;
+	// navigator.clipboard is unavailable outside secure contexts (file://, plain http).
+	const field = document.createElement("textarea");
+	field.value = text;
+	field.setAttribute("readonly", "");
+	field.style.position = "fixed";
+	field.style.opacity = "0";
+	document.body.append(field);
+	field.select();
+
+	let copied = false;
+	try {
+		copied = document.execCommand("copy");
+	} catch {
+		copied = false;
+	}
+
+	field.remove();
+	return copied;
+}
+
+let copyResetTimer;
+
+copyEmailButton.addEventListener("click", async () => {
+	const copied = await copyText(copyEmailButton.dataset.copy);
+	copyEmailButton.focus();
+
+	if (!copied) {
+		return;
+	}
+
+	copyEmailButton.classList.add("is-copied");
+	copyEmailButton.setAttribute("aria-label", translate("email.copied"));
+	window.clearTimeout(copyResetTimer);
+	copyResetTimer = window.setTimeout(() => {
+		copyEmailButton.classList.remove("is-copied");
 		copyEmailButton.setAttribute("aria-label", translate("email.copy"));
-	}, 1400);
+	}, 1800);
 });
 
 if ("IntersectionObserver" in window) {
